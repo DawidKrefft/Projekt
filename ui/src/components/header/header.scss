@@ -1,0 +1,371 @@
+@import './../../styles/variables.scss';
+@import './../../styles/index.scss';
+
+.headerContainer {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  .header {
+    // width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+    .overlay {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-image: radial-gradient(
+        circle at 36% 48%,
+        #312f2f,
+        rgba(11, 39, 65, 0.32) 87%,
+        rgba(0, 0, 0, 0)
+      );
+      // background-image: linear-gradient(
+      //   to right bottom,
+      //   rgba(235, 151, 78, 0.35),
+      //   rgba(230, 125, 34, 0.35)
+      // );
+      top: 0;
+      bottom: 0;
+      z-index: 1;
+      mix-blend-mode: hard-light;
+    }
+
+    video {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      object-fit: cover;
+    }
+
+    .headerContent {
+      width: 100%;
+      height: max-content;
+      padding: 8rem 1.5rem 3rem;
+      display: flex;
+      row-gap: 3rem;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+      margin: auto;
+      color: $whiteColor;
+      z-index: 100;
+
+      .textDiv {
+        padding: 2rem 0;
+
+        .smallText {
+          font-size: 18px;
+          text-transform: uppercase;
+        }
+        .headerTitle {
+          position: relative;
+          font-size: 7rem;
+        }
+      }
+
+      .cardDiv {
+        // position: relative;
+        padding: 4rem 2rem;
+        background: hsla(0, 0%, 100%, 0.4);
+        border-radius: 10px;
+        gap: 1rem;
+
+        .destinationInput {
+          ::placeholder {
+            font-size: 18px;
+          }
+          input[type='text'] {
+            font-size: 18px;
+            color: $textColor;
+          }
+        }
+
+        span {
+          display: block;
+          color: $textColor;
+          padding-bottom: 10px;
+          font-size: 18px;
+          font-weight: 500;
+        }
+
+        .dateInput {
+          //   position: relative;
+          .date {
+            button {
+              background-color: $tint;
+            }
+            //     position: absolute;
+            //     // top: -300px;
+            //     left: 50%;
+            //     transform: translate(-50%);
+            //     top: -700%;
+            //     z-index: 5000;
+            //     // transform: scale(0.8);
+          }
+        }
+        .options {
+          position: absolute;
+          top: 75px;
+          right: 190px;
+
+          z-index: 100;
+
+          background-color: white;
+          color: gray;
+          border-radius: 5px;
+          -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+          .optionItem {
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+            margin: 10px;
+
+            .optionCounter {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 12px;
+              font-size: 12px;
+              color: $blackColor;
+
+              .optionCounterButton {
+                width: 30px;
+                height: 30px;
+                border: 1px solid $primaryColor;
+                color: $primaryColor;
+                cursor: pointer;
+                background-color: white;
+                &:disabled {
+                  cursor: not-allowed;
+                }
+              }
+            }
+          }
+        }
+
+        .headerSearchItem {
+          grid-column: 2;
+          .searchWrapper {
+            display: flex;
+            justify-content: center;
+            .searchBtn {
+              width: 100%;
+              display: grid;
+              align-self: end;
+              justify-self: end;
+              color: $whiteColor;
+            }
+          }
+        }
+
+        .label_total {
+          justify-content: space-between;
+          align-items: center;
+
+          .total {
+            color: $textColor;
+            font-size: 18px;
+            padding-bottom: 10px;
+          }
+        }
+
+        .input {
+          height: 40px;
+          padding: 0 1rem;
+          background: $inputColor;
+          border-radius: 3rem;
+          text-align: center;
+        }
+
+        input {
+          align-items: center;
+          text-align: center;
+          background: none;
+          border: none;
+          outline: none;
+          width: 100%;
+          font-size: 13px;
+          font-weight: 500;
+          &::placeholder {
+            font-size: 13px;
+          }
+        }
+
+        .icon {
+          font-size: 18px;
+          color: $primaryColor !important;
+        }
+
+        // .input[type='range'] {
+        //   background: skyblue;
+        //   background-color: red;
+        //   color: red;
+        // }
+        input[type='range'] {
+          // -webkit-appearance: none;
+          background: $secondaryColor;
+        }
+      }
+
+      .headerFooterIcons {
+        width: 100%;
+        justify-content: space-between;
+
+        .icon {
+          font-size: 20px;
+          margin: 0 5px;
+          color: $whiteColor;
+          font-weight: 600;
+          &:hover {
+            color: $primaryColor;
+          }
+        }
+      }
+    }
+    .statsLocation {
+      justify-content: center;
+      margin-top: 2rem;
+      cursor: copy;
+    }
+    .statsType {
+      cursor: copy;
+      justify-content: center;
+    }
+  }
+}
+
+// ... media queries
+
+@media screen and (max-width: 880px) {
+  .header {
+    .dateInput {
+      position: relative;
+      .date {
+        position: absolute;
+        top: -870%;
+        left: -11.5%;
+        transform: translate(-50%);
+        z-index: 5000;
+        transform: scale(0.7);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .header {
+    .headerContent {
+      .textDiv {
+        .smallText {
+          font-size: 16px;
+        }
+
+        .headerTitle {
+          position: relative;
+          font-size: 2.3rem;
+          width: max-content;
+
+          &::after {
+            position: absolute;
+            content: '';
+            background: $secondaryColor;
+            height: 5px;
+            width: 145px;
+            right: 0;
+            bottom: 5px;
+            z-index: -1;
+          }
+        }
+      }
+
+      .cardDiv {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 660px) {
+  .header {
+    .headerContent {
+      .cardDiv {
+        padding: 2rem 1rem;
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .header {
+    height: 85vh;
+
+    .dateInput {
+      position: relative;
+      .date {
+        position: absolute;
+        top: -870%;
+        left: -11.5%;
+        transform: translate(-50%);
+        z-index: 5000;
+        transform: scale(0.8);
+      }
+    }
+  }
+}
+@media screen and (min-width: 1240px) {
+  .header {
+    height: 100vh;
+
+    .headerContent {
+      padding-left: 0;
+      padding-right: 0;
+
+      .cardDiv {
+        padding: 2rem 1rem;
+        grid-template-columns: repeat(3, 1fr);
+        .input {
+          margin-bottom: 1rem;
+        }
+
+        .dateInput {
+          position: relative;
+          .date {
+            position: absolute;
+            // top: -300px;
+            left: 50%;
+            transform: translate(-50%);
+            top: -700%;
+            z-index: 5000;
+            // transform: scale(0.8);
+          }
+        }
+
+        .searchOptions {
+          bottom: -1rem;
+          padding: 8px 1rem;
+
+          span {
+            font-size: 17px;
+          }
+        }
+      }
+    }
+    .statsLocation {
+      justify-content: center;
+      cursor: copy;
+    }
+    .statsType {
+      cursor: copy;
+      justify-content: center;
+    }
+  }
+}

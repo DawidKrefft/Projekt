@@ -1,0 +1,148 @@
+@import './../../styles/variables.scss';
+@import './../../styles//index.scss';
+
+.navbarContainer {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $whiteColorDeam;
+  width: 100%;
+  padding: 1rem;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(2, 15, 29, 0.242);
+
+  .logo {
+    color: $blackColor;
+    font-weight: 600;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    .icon {
+      font-size: 25px;
+      color: $primaryColor;
+      transform: translateY(5px);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .navbar {
+      position: absolute;
+      background: $whiteColor;
+      height: max-content;
+      width: 80%;
+      border-radius: 1rem;
+      top: -500rem;
+      left: 50%;
+      padding: 1rem;
+      transform: translate(-50%);
+      z-index: 2000;
+      box-shadow: 0 2px 4px rgba(2, 15, 29, 0.904);
+      transition: 0.3s ease-in-out;
+
+      .navLists {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        margin: auto;
+        padding: 0.5rem 0;
+
+        .navItem {
+          padding: 0.5rem 0;
+
+          .btn {
+            margin-top: 1rem;
+
+            a {
+              font-weight: 600;
+              color: $whiteColor;
+            }
+          }
+        }
+      }
+      .closeNavbar {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        color: $primaryColor;
+        &:hover {
+          color: $secondaryColor;
+        }
+      }
+    }
+    .activeNavbar {
+      top: 7rem;
+    }
+  }
+  .toggleNavbar {
+    .icon {
+      font-size: 25px;
+      color: $primaryColor;
+      &:hover {
+        color: $secondaryColor;
+      }
+    }
+  }
+}
+@media screen and (min-width: 769px) {
+  .toggleNavbar,
+  .closeNavbar {
+    display: none;
+  }
+
+  .navbarContainer {
+    padding: 1.5rem 2rem;
+
+    .navbar {
+      .navLists {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+
+        .navItem {
+          .navLink {
+            color: $textColor;
+            padding: 0 0.45rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+
+            &:hover {
+              color: $primaryColor;
+            }
+          }
+        }
+
+        .btn {
+          margin-left: 1rem;
+          a {
+            color: $whiteColor;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .navbarContainer {
+    .navbar {
+      .navLists {
+        .navItem {
+          padding: 0 0.7rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 1240px) {
+  .navbarContainer {
+    zoom: 1;
+    .navbar {
+      padding: 0 8.5rem;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+@import './../../styles/variables.scss';
+@import './../../styles//index.scss';
+
+.listSection {
+  width: 100%;
+
+  .listContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .listWrapper {
+      margin-top: 150px;
+      display: flex;
+      // flex-direction: column;
+      width: 100%;
+      max-width: 1024px;
+      display: flex;
+      gap: 20px;
+
+      .listSearch {
+        flex: 1;
+        background-color: $primaryColor;
+        padding: 10px;
+        border-radius: 10px;
+        position: sticky;
+        top: 10px;
+        height: max-content;
+        /* to not go infinity */
+
+        .lsItem {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+          margin-bottom: 10px;
+
+          label {
+            font-size: 12px;
+            color: $whiteColor;
+            text-align: center;
+          }
+          input {
+            height: 30px;
+            border: none;
+            padding: 5px;
+            text-align: center;
+          }
+          .spanClass {
+            height: 30px;
+            min-width: 130px;
+            padding: 5px;
+            background-color: $secondaryColor;
+            border-radius: 1rem;
+            align-self: center;
+            text-align: center;
+          }
+          .dateSpan {
+            background-color: $whiteColor;
+          }
+        }
+        .btn {
+          padding: 10px;
+          background-color: $secondaryColor;
+          color: white;
+          border: none;
+          width: 100%;
+          font-weight: 600;
+          cursor: pointer;
+        }
+      }
+
+      .lsOptions {
+        margin-top: 10px;
+        padding: 10px;
+
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+
+        .lsOptionItem {
+          color: $textColor;
+          font-size: 12px;
+          .lsOptionText {
+          }
+        }
+
+        .lsOptionInput {
+          margin-left: 10px;
+          width: 40px;
+          border-radius: 5%;
+        }
+      }
+
+      .listResult {
+        width: 100%;
+        justify-content: center;
+        gap: 1.4rem;
+      }
+    }
+  }
+}
+
+.dateRange {
+  justify-content: center;
+}
+
+.secContent {
+  margin-top: 1rem;
+  justify-content: center;
+  gap: 1.5rem;
+}
+@media screen and (min-width: 500px) {
+  .secContent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 840px) {
+  .secContent {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

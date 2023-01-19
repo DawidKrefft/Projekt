@@ -1,0 +1,115 @@
+@import './../../styles/variables.scss';
+@import './../../styles//index.scss';
+
+.searchItem {
+  height: 100%;
+  display: grid;
+  row-gap: 10px;
+  border-radius: 10px;
+  align-items: center;
+  background: $cardBg;
+  box-shadow: 0 2px 4px rgba(140, 140, 140, 0.549);
+  overflow: hidden;
+  &:hover {
+    background: $cardHover;
+    box-shadow: 1 4px 4px rgba(85, 85, 114, 0.549);
+    transition: 0.3s ease;
+  }
+
+  .imageDiv {
+    height: 180px;
+    width: 100%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 2s ease;
+    }
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .cardInfo {
+    padding: 1rem;
+
+    .destTitle {
+      color: $blackColor;
+      font-size: 1.25rem;
+    }
+
+    .continent {
+      gap: 0.5rem;
+
+      .icon {
+        color: $textColor;
+        font-size: 18px;
+      }
+
+      .name {
+        color: $textColor;
+        font-weight: 400;
+        font-size: 14px;
+      }
+    }
+
+    .fees {
+      width: 100%;
+      justify-content: space-between;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-top: 1.5px solid $greyText;
+      border-bottom: 1.5px solid $greyText;
+
+      .grade {
+        color: $textColor;
+        max-width: 100px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .price {
+        font-size: 2rem;
+        color: $blackColor;
+        small {
+          text-align: center;
+          background: $gradientColor;
+          border-radius: 1rem;
+          color: $whiteColor;
+          padding: 10px 10px;
+          font-size: 15px;
+        }
+      }
+    }
+
+    .desc {
+      font-size: 13.5px;
+      color: $textColor;
+      font-weight: 500;
+    }
+
+    .btnCenter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .btn {
+        margin-top: 1rem;
+        color: $whiteColor;
+        column-width: 600;
+        justify-content: space-between;
+        gap: 0.5rem;
+
+        .icon {
+          align-self: center;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

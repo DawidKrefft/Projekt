@@ -1,0 +1,32 @@
+@import './../../styles/variables.scss';
+@import './../../styles/index.scss';
+
+.statsLocation {
+  gap: 4rem;
+  flex-wrap: wrap;
+  // margin-top: 3rem;
+
+  .statsLocationItem {
+    flex: 1;
+
+    position: relative;
+    color: $whiteColor;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 250px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .statsLocation {
+    gap: 1rem;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 440px) {
+  .statsLocation {
+    gap: 2px;
+    font-size: 9px;
+  }
+}

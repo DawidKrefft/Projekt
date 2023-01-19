@@ -1,0 +1,107 @@
+@import './../../styles/variables.scss';
+@import './../../styles//index.scss';
+
+.hotelContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // margin: 0 20%;
+
+  .hotelWrapper {
+    margin-top: 150px;
+    width: 100%;
+    // max-width: 1024px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+
+    .hotelHeader {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      .hotelTitle {
+        font-size: 3rem;
+
+        .hotelAddress {
+          font-size: 12px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+    }
+    .hotelPrice {
+      color: $textColor;
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+
+    .carousel {
+      cursor: grab;
+      overflow: hidden;
+      .innerCarousel {
+        display: flex;
+        .photo {
+          min-height: 40rem;
+          min-width: 30rem;
+          padding: 40px;
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 2rem;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+
+    .hotelDetails {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 20px;
+
+      .hotelDetailsTexts {
+        flex: 4;
+        .hotelTitle {
+          font-size: 2.2rem;
+        }
+      }
+
+      .hotelDesc {
+        font-size: 14px;
+        margin-top: 20px;
+      }
+
+      .hotelDetailsPrice {
+        flex: 1;
+        background-color: #ebf3ff;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        h1 {
+          font-size: 18px;
+          color: #555;
+        }
+        span {
+          font-size: 14px;
+        }
+        h2 {
+          font-weight: 300;
+        }
+        button {
+          border: none;
+          padding: 10px 20px;
+          background-color: $secondaryColor;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

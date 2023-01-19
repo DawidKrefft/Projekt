@@ -1,0 +1,57 @@
+@import './../../styles/variables.scss';
+@import './../../styles//index.scss';
+
+.statsType {
+  flex-wrap: wrap;
+  // justify-content: center;
+  gap: 20px;
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .statsTypeItem {
+    flex: 1;
+    min-width: 100px;
+    border-radius: 10px;
+    background-color: $secondaryColor;
+    overflow: hidden;
+    text-align: center;
+
+    // cursor: copy;
+    .stats {
+      h1 {
+        font-size: 18px;
+        color: #444;
+        text-transform: capitalize;
+      }
+      h2 {
+        font-size: 18px;
+        font-weight: 300;
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .statsType {
+    .statsTypeItem {
+      flex: 1;
+      min-width: 100px;
+      border-radius: 10px;
+      background-color: $secondaryColor;
+      overflow: hidden;
+      text-align: center;
+
+      .stats {
+        h1 {
+          font-size: 14px;
+          color: #444;
+          text-transform: capitalize;
+        }
+        h2 {
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+$poppins: 'Poppins', sans-serif;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Colors and styling */
+
+$primaryColor: #e67e22;
+$secondaryColor: #eb984e;
+$gradientColor: linear-gradient(to right, #eb984e, #e67e22);
+$tint: #fae5d3;
+$whiteColor: hsl(0, 0%, 100%);
+$blackColor: #3a1f08;
+$textColor: hsl(240, 4%, 36%);
+$whiteColorDeam: hsl(0, 0%, 93%);
+$greyText: rgb(190, 190, 190);
+$inputColor: rgb(239, 239, 239);
+$bodyColor: rgb(240, 240, 246);
+$cardBg: rgb(225, 225, 235);
+$cardHover: rgb(255, 255, 255);
