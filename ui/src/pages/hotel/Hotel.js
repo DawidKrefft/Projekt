@@ -19,7 +19,10 @@ const Hotel = () => {
   const [openModal, setOpenModal] = useState(false);
   const { data, isLoading } = useFetch(`/hotels/find/${id}`);
   const { user } = useContext(AuthContext);
-  const { dates, options } = useContext(SearchContext);
+  const [dates, setDates] = useState(location.state.dates);
+  const [options, setOptions] = useState(location.state.options);
+  // console.log(dates);
+  // const { dates, options } = useContext(SearchContext);
 
   let { name, address, cheapestPrice, photos, title, desc } = data;
 

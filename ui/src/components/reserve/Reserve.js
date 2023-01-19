@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import { SearchContext } from '../../context/SearchContext';
 import useFetch from '../../hooks/useFetch';
 import { useNavigate } from 'react-router-dom';
+import format from 'date-fns/format';
 
 const Reserve = ({ setOpen, hotelId }) => {
   const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
@@ -43,6 +44,17 @@ const Reserve = ({ setOpen, hotelId }) => {
       checked ? [...selectedRooms, value] : selectedRooms.filter(item => item !== value),
     );
   };
+
+  // console.log(
+  //   `${format(dates[0].startDate, 'dd/MM/yyyy')} to ${format(dates[0].endDate, 'dd/MM/yyyy')}`,
+  // );
+
+  const datesString = `${format(dates[0].startDate, 'dd/MM/yyyy')} to ${format(
+    dates[0].endDate,
+    'dd/MM/yyyy',
+  )}`;
+  console.log(datesString);
+
   const navigate = useNavigate();
   // console.log(selectedRooms);
   const handleClick = async () => {

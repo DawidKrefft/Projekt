@@ -5,7 +5,7 @@ import { GoLocation } from 'react-icons/go';
 import { BsClipboardCheck } from 'react-icons/bs';
 import img from '../../Assets/img1.jpg';
 
-const SearchItem = ({ item }) => {
+const SearchItem = ({ item, handleSearch, dates, options }) => {
   const { photos, name, address, desc, rating, cheapestPrice, _id } = item;
   let src = photos[0] || img;
   return (
@@ -37,7 +37,12 @@ const SearchItem = ({ item }) => {
             <p>{desc}</p>
           </div>
 
-          <Link to={`/hotels/${_id}`} className='btnCenter'>
+          <Link
+            to={`/hotels/${_id}`}
+            className='btnCenter'
+            onClick={handleSearch}
+            state={{ dates, options }}
+          >
             <button className='btn flex'>
               DETAILS <BsClipboardCheck className='icon' />
             </button>

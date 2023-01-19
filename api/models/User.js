@@ -21,6 +21,9 @@ const UserSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    reservations: {
+      type: [String],
+    },
   },
   { timestamps: true },
 );

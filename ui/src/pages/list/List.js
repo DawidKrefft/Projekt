@@ -1,5 +1,5 @@
 import './list.scss';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Navbar from '../../components/navbar/Navbar';
 import Header from '../../components/header/Header';
 import { useLocation } from 'react-router-dom';
@@ -9,6 +9,7 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme
 import SearchItem from '../../components/searchItem/SearchItem';
 import useFetch from './../../hooks/useFetch';
+import { SearchContext } from '../../context/SearchContext';
 
 const List = () => {
   const location = useLocation();
@@ -26,6 +27,14 @@ const List = () => {
   const handleClick = () => {
     reFetch();
   };
+
+  const { dispatch } = useContext(SearchContext);
+
+  const handleSearch = () => {
+    dispatch({ type: 'NEW_SEARCH', payload: { dates, options } });
+    // navigate('/hotels', { state: { dates, options } });
+  };
+  // navigate('/hotels', { state: { destination, dates, options } });
 
   return (
     <div>
@@ -129,7 +138,13 @@ const List = () => {
           <>
             <div className='secContent grid'>
               {data.map(item => (
-                <SearchItem item={item} key={item._id} />
+                <SearchItem
+                  item={item}
+                  key={item._id}
+                  handleSearch={handleSearch}
+                  dates={dates}
+                  options={options}
+                />
               ))}
             </div>
 
