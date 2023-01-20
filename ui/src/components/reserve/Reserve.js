@@ -8,11 +8,13 @@ import { SearchContext } from '../../context/SearchContext';
 import useFetch from '../../hooks/useFetch';
 import { useNavigate } from 'react-router-dom';
 import format from 'date-fns/format';
+import { AuthContext } from '../../context/AuthContext';
 
 const Reserve = ({ setOpen, hotelId }) => {
   const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { dates } = useContext(SearchContext);
+  const { user } = useContext(AuthContext);
 
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);
@@ -45,15 +47,12 @@ const Reserve = ({ setOpen, hotelId }) => {
     );
   };
 
-  // console.log(
-  //   `${format(dates[0].startDate, 'dd/MM/yyyy')} to ${format(dates[0].endDate, 'dd/MM/yyyy')}`,
-  // );
-
   const datesString = `${format(dates[0].startDate, 'dd/MM/yyyy')} to ${format(
     dates[0].endDate,
     'dd/MM/yyyy',
   )}`;
-  console.log(datesString);
+
+  const userId = user._id;
 
   const navigate = useNavigate();
   // console.log(selectedRooms);
@@ -62,7 +61,9 @@ const Reserve = ({ setOpen, hotelId }) => {
       await Promise.all(
         selectedRooms.map(roomId => {
           axios.put(`/rooms/availability/${roomId}`, { dates: allDates });
-          // axios.put(`/users/reservations`, { dates: allDates });
+          let message = `Room ${roomId} reserved from ${datesString}`;
+
+          axios.put(`/users/${user._id}`, { reservations: message });
         }),
       );
       setOpen(false);

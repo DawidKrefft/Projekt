@@ -32,7 +32,6 @@ const List = () => {
 
   const handleSearch = () => {
     dispatch({ type: 'NEW_SEARCH', payload: { dates, options } });
-    // navigate('/hotels', { state: { dates, options } });
   };
   // navigate('/hotels', { state: { destination, dates, options } });
 
