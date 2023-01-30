@@ -56,6 +56,9 @@ const Hotel = () => {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   }, [carousel]);
 
+  console.log(cheapestPrice);
+  console.log(options.adult);
+  console.log(options.children);
   return (
     <div>
       <Navbar />
@@ -80,7 +83,7 @@ const Hotel = () => {
             <motion.div ref={carousel} className='carousel' whileTap={{ cursor: 'grabbing' }}>
               <motion.div
                 drag='x'
-                dragConstraints={{ right: 0, left: -1500 }}
+                dragConstraints={{ right: 0, left: width }}
                 className='innerCarousel'
               >
                 {photos?.map((photo, i) => {
@@ -102,7 +105,14 @@ const Hotel = () => {
                 <h1>Have a great time!</h1>
 
                 <h2>
-                  <b>${days * cheapestPrice * options.room}</b> ({days} days)
+                  <b>
+                    $
+                    {days * cheapestPrice * options.room +
+                      days *
+                        ((options.adult * cheapestPrice) / 10 +
+                          (options.children * cheapestPrice) / 20)}
+                  </b>{' '}
+                  ({days} days)
                 </h2>
                 <button className='btn' onClick={handleClick}>
                   Reserve or Book Now!

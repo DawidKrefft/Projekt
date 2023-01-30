@@ -71,7 +71,7 @@
       }
 
       .cardDiv {
-        // position: relative;
+        position: relative;
         padding: 4rem 2rem;
         background: hsla(0, 0%, 100%, 0.4);
         border-radius: 10px;
@@ -85,6 +85,9 @@
             font-size: 18px;
             color: $textColor;
           }
+        }
+
+        .headerSearchText {
         }
 
         span {
@@ -112,8 +115,8 @@
         }
         .options {
           position: absolute;
-          top: 75px;
-          right: 190px;
+          top: 115px;
+          right: 90px;
 
           z-index: 100;
 
@@ -250,12 +253,27 @@
       position: relative;
       .date {
         position: absolute;
-        top: -870%;
-        left: -11.5%;
+        top: -790%;
+        left: -70.5%;
         transform: translate(-50%);
         z-index: 5000;
         transform: scale(0.7);
       }
+    }
+    .cardDiv {
+      span {
+        font-size: 12px !important;
+      }
+      .destinationInput {
+        ::placeholder {
+          font-size: 11px !important;
+        }
+        input[type='text'] {
+          font-size: 11px !important;
+          color: $textColor;
+        }
+      }
+      // options
     }
   }
 }

@@ -1,8 +1,9 @@
-// import './login.scss';
+import './login.scss';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../../components/navbar/Navbar';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ username: undefined, password: undefined });
@@ -31,28 +32,36 @@ const Login = () => {
   // console.log(user);
 
   return (
-    <div className='login'>
-      <div className='lContainer'>
-        <input
-          type='text'
-          placeholder='username'
-          id='username'
-          onChange={handleChange}
-          className='lInput'
-        />
-        <input
-          type='password'
-          placeholder='password'
-          id='password'
-          onChange={handleChange}
-          className='lInput'
-        />
-        <button disabled={isLoading} onClick={handleClick} className='lButton'>
-          Login
-        </button>
-        {error && <span>{error.message}</span>}
+    <>
+      <Navbar />
+      <div className='loginContainer'>
+        <div className='login'>
+          <h1 className='loginTitle'>Login</h1>
+          <div className='loginInputs'>
+            <input
+              type='text'
+              placeholder='username'
+              id='username'
+              onChange={handleChange}
+              className='loginInput'
+            />
+            <input
+              type='password'
+              placeholder='password'
+              id='password'
+              onChange={handleChange}
+              className='loginInput'
+            />
+          </div>
+          <div className='loginButtonContainer'>
+            <button disabled={isLoading} onClick={handleClick} className='btn loginButton'>
+              Login
+            </button>
+          </div>
+          {error && <span>{error.message}</span>}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,81 +1,92 @@
 @import './../../styles/variables.scss';
-@import './../../styles//index.scss';
+@import './../../styles/index.scss';
 
-.rModal {
+.reserveContainer {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.418);
+  background-color: rgba(0, 0, 0, 0.447);
   position: fixed;
   top: 0;
   left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
-  .rContainer {
-    background-color: white;
-    padding: 20px;
-    position: relative;
+.reserve {
+  border-radius: 5px;
+  background-color: $whiteColor;
+  padding: 20px;
+  position: relative;
+}
 
-    .rItem {
-      display: flex;
-      align-items: center;
-      gap: 50px;
-      padding: 20px;
-      .rItemInfo {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        .rTitle {
-          font-weight: 500;
-        }
-        .rDesc {
-          font-weight: 300;
-        }
-        .rMax {
-          font-size: 12px;
-        }
-        .rPrice {
-          font-weight: 500;
-        }
-      }
-    }
-
-    .rClose {
-      position: absolute;
-      top: 0;
-      right: 0;
-      cursor: pointer;
-      color: $primaryColor;
-      zoom: 2.5;
-      &:hover {
-        color: $secondaryColor;
-      }
-    }
-
-    .rSelectRooms {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      font-size: 8px;
-      color: gray;
-    }
-
-    .room {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .rButton {
-      border: none;
-      padding: 10px 20px;
-      background-color: $secondaryColor;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-      width: 100%;
-      margin-top: 20px;
-    }
+.rClose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  color: $primaryColor;
+  zoom: 2.5;
+  &:hover {
+    color: $secondaryColor;
   }
+}
+
+.rItem {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+.rInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rTitle {
+  border-top: 1px solid #000;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.rDesc {
+  font-weight: 300;
+}
+
+.rMax {
+  font-size: 12px;
+  text-align: center;
+}
+
+.rPrice {
+  font-weight: 500;
+  text-align: center;
+}
+
+.rSelectRooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 18px;
+  color: $textColor;
+}
+
+.room {
+  display: flex;
+  flex-direction: column;
+}
+
+.rButton {
+  border: none;
+  padding: 10px 20px;
+  background-color: $secondaryColor;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 15px;
 }

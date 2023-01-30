@@ -1,0 +1,58 @@
+@import './../../styles/variables.scss';
+@import './../../styles/index.scss';
+
+.loginContainer {
+  background: linear-gradient(135deg, $blackColor, $secondaryColor);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  .login {
+    max-width: 2000px;
+    background: $tint;
+    padding: 60px 30px;
+    border-radius: 5px;
+
+    .loginTitle {
+      color: black;
+      justify-content: center;
+      position: relative;
+      font-size: 60px;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 80px;
+        background: linear-gradient(135deg, $blackColor, $secondaryColor);
+      }
+    }
+  }
+
+  .loginInputs {
+    display: flex;
+    flex-direction: column;
+
+    .loginInput {
+      margin-top: 20px;
+      height: 30px;
+      padding: 10px;
+    }
+  }
+
+  .loginButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .loginButton {
+      margin-top: 20px;
+      color: $whiteColor;
+      &:disabled {
+        background-color: $blackColor;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

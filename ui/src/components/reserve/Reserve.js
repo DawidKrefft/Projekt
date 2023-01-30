@@ -61,7 +61,7 @@ const Reserve = ({ setOpen, hotelId }) => {
       await Promise.all(
         selectedRooms.map(roomId => {
           axios.put(`/rooms/availability/${roomId}`, { dates: allDates });
-          let message = `Room ${roomId} reserved from ${datesString}`;
+          let message = `Room ${roomId} reserved from ${datesString} by ${user._id}`;
 
           axios.put(`/users/${user._id}`, { reservations: message });
         }),
@@ -71,8 +71,8 @@ const Reserve = ({ setOpen, hotelId }) => {
     } catch (err) {}
   };
   return (
-    <div className='rModal'>
-      <div className='rContainer'>
+    <div className='reserveContainer'>
+      <div className='reserve'>
         <FontAwesomeIcon icon={faCircleXmark} className='rClose' onClick={() => setOpen(false)} />
         <span>Select your rooms:</span>
         {data.map(item => {

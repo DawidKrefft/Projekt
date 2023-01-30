@@ -1,15 +1,13 @@
+import './register.scss';
 import React from 'react';
-// import './register.scss';
 import { useState } from 'react';
 import axios from 'axios';
+import Navbar from '../../components/navbar/Navbar';
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [country, setCountry] = useState('');
-  const [phone, setPhone] = useState('');
-  const [city, setCity] = useState('');
 
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
@@ -31,21 +29,6 @@ const Register = () => {
     setSubmitted(false);
   };
 
-  const handleCountry = e => {
-    setCountry(e.target.value);
-    setSubmitted(false);
-  };
-
-  const handleCity = e => {
-    setCity(e.target.value);
-    setSubmitted(false);
-  };
-
-  const handlePhone = e => {
-    setPhone(e.target.value);
-    setSubmitted(false);
-  };
-
   const handleClick = async e => {
     e.preventDefault();
     try {
@@ -53,9 +36,6 @@ const Register = () => {
         username,
         email,
         password,
-        country,
-        city,
-        phone,
       };
 
       await axios.post('/auth/register', newUser);
@@ -70,13 +50,15 @@ const Register = () => {
 
   return (
     <>
-      <body className='regBody'>
+      <Navbar />
+
+      <div className='registerContainer'>
         <div className='register'>
-          <h1 className='reTitle'>Register</h1>
+          <h1 className='registerTitle'>Register</h1>
           <div className='inputs'>
             <input
               onChange={handleUserame}
-              className='rInput'
+              className='registerInput'
               type='text'
               id='username'
               placeholder='First Name'
@@ -85,45 +67,24 @@ const Register = () => {
               onChange={handleEmail}
               type='email'
               id='email'
-              className='rInput'
+              className='registerInput'
               placeholder='Email'
             />
             <input
               onChange={handlePassword}
-              className='rInput'
+              className='registerInput'
               type='password'
               id='password'
               placeholder='Password'
             />
-            <input
-              onChange={handleCountry}
-              className='rInput'
-              type='text'
-              id='country'
-              placeholder='Country'
-            />
-            <input
-              onChange={handleCity}
-              className='rInput'
-              type='text'
-              id='city'
-              placeholder='City'
-            />
-            <input
-              onChange={handlePhone}
-              className='rInput'
-              type='text'
-              id='phone'
-              placeholder='+1 234 567 89'
-            />
           </div>
-          <div class='footer'>
-            <button onClick={handleClick} type='submit' className='btn'>
-              Go!
+          <div class='registerButtonContainer'>
+            <button onClick={handleClick} type='submit' className='btn registerButton'>
+              Enter
             </button>
           </div>
         </div>
-      </body>
+      </div>
     </>
   );
 };

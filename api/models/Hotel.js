@@ -20,7 +20,7 @@ const HotelSchema = new Schema({
     type: String,
     required: true,
   },
-  distance: {
+  country: {
     type: String,
     required: true,
   },
