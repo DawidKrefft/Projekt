@@ -9,7 +9,7 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme
 import SearchItem from '../../components/searchItem/SearchItem';
 import useFetch from './../../hooks/useFetch';
-import { SearchContext } from '../../context/SearchContext';
+import { SearchContext, useSearch } from '../../context/SearchContext';
 
 const List = () => {
   const location = useLocation();
@@ -28,12 +28,11 @@ const List = () => {
     reFetch();
   };
 
-  const { dispatch } = useContext(SearchContext);
+  const { dispatch } = useSearch();
 
   const handleSearch = () => {
-    dispatch({ type: 'NEW_SEARCH', payload: { dates, options } });
+    dispatch({ type: 'SEARCH', payload: { dates, options } });
   };
-  // navigate('/hotels', { state: { destination, dates, options } });
 
   return (
     <div>

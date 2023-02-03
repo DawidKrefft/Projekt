@@ -4,17 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { SearchContext } from '../../context/SearchContext';
+import { SearchContext, useSearch } from '../../context/SearchContext';
 import useFetch from '../../hooks/useFetch';
 import { useNavigate } from 'react-router-dom';
 import format from 'date-fns/format';
-import { AuthContext } from '../../context/AuthContext';
+import { AuthContext, useAuth } from '../../context/AuthContext';
 
 const Reserve = ({ setOpen, hotelId }) => {
   const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
   const [selectedRooms, setSelectedRooms] = useState([]);
-  const { dates } = useContext(SearchContext);
-  const { user } = useContext(AuthContext);
+  const { dates } = useSearch();
+  const { user } = useAuth();
 
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import './navbar.scss';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthContext';
+import { AuthContext, useAuth } from '../../context/AuthContext';
 import { TbBrandBooking } from 'react-icons/tb';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { TbGridDots } from 'react-icons/tb';
@@ -15,7 +15,7 @@ const Navbar = () => {
     setActive(`navbar`);
   };
 
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   const [openModal, setOpenModal] = useState(false);
   const navigate = useNavigate();
 

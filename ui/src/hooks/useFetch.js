@@ -5,7 +5,6 @@ const useFetch = url => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
-
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -19,7 +18,6 @@ const useFetch = url => {
     };
     fetchData();
   }, [url]);
-
   const reFetch = async () => {
     setIsLoading(true);
     try {
@@ -30,8 +28,6 @@ const useFetch = url => {
     }
     setIsLoading(false);
   };
-
   return { data, isLoading, error, reFetch };
 };
-
 export default useFetch;

@@ -1,16 +1,4 @@
 import User from '../models/User.js';
-
-// export const createUser = async (req, res, next) => {
-//   const newUser = new User(req.body);
-
-//   try {
-//     const savedUser = await newHotel.save();
-//     res.status(200).json(savedHotel);
-//   } catch (err) {
-//     // res.status(500).json(err);
-//     next(err);
-//   }
-// };
 export const updateUser = async (req, res, next) => {
   try {
     // mongoDB set method , new true to prevent showing previous

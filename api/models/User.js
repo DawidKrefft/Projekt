@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
-
+// mongoose.Schema.Types.String.set('trim', true);
 const UserSchema = new Schema(
   {
     username: {

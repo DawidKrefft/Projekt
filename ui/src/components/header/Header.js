@@ -8,8 +8,8 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
-import { SearchContext } from './../../context/SearchContext';
-import { AuthContext } from './../../context/AuthContext';
+import { SearchContext, useSearch } from './../../context/SearchContext';
+import { AuthContext, useAuth } from './../../context/AuthContext';
 import StatsLocation from '../statsLocation/StatsLocation';
 import StatsType from '../statsType/StatsType';
 import Navbar from '../../components/navbar/Navbar';
@@ -32,7 +32,7 @@ const Header = () => {
   });
 
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
 
   const handleOption = (name, operation) => {
     setOptions(prev => {
@@ -43,10 +43,10 @@ const Header = () => {
     });
   };
 
-  const { dispatch } = useContext(SearchContext);
+  const { dispatch } = useSearch();
 
   const handleSearch = () => {
-    dispatch({ type: 'NEW_SEARCH', payload: { destination, dates, options } });
+    dispatch({ type: 'SEARCH', payload: { destination, dates, options } });
     navigate('/hotels', { state: { destination, dates, options } });
   };
 

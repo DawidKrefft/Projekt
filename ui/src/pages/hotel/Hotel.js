@@ -6,7 +6,7 @@ import Navbar from '../../components/navbar/Navbar';
 import useFetch from './../../hooks/useFetch';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { SearchContext } from '../../context/SearchContext';
-import { AuthContext } from '../../context/AuthContext';
+import { AuthContext, useAuth } from '../../context/AuthContext';
 import Reserve from '../../components/reserve/Reserve';
 import { motion } from 'framer-motion';
 
@@ -18,11 +18,11 @@ const Hotel = () => {
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const { data, isLoading } = useFetch(`/hotels/find/${id}`);
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   const [dates, setDates] = useState(location.state.dates);
   const [options, setOptions] = useState(location.state.options);
   // console.log(dates);
-  // const { dates, options } = useContext(SearchContext);
+  // const { dates, options } = useSearch();
 
   let { name, address, cheapestPrice, photos, title, desc } = data;
 
@@ -56,9 +56,6 @@ const Hotel = () => {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   }, [carousel]);
 
-  console.log(cheapestPrice);
-  console.log(options.adult);
-  console.log(options.children);
   return (
     <div>
       <Navbar />

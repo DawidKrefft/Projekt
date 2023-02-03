@@ -1,6 +1,7 @@
+import { useContext } from 'react';
 import { createContext, useReducer } from 'react';
 
-const INITIAL_STATE = {
+const defaultState = {
   city: undefined,
   dates: [],
   options: {
@@ -10,21 +11,19 @@ const INITIAL_STATE = {
   },
 };
 
-export const SearchContext = createContext(INITIAL_STATE);
+export const SearchContext = createContext(defaultState);
 
 const SearchReducer = (state, action) => {
   switch (action.type) {
-    case 'NEW_SEARCH':
+    case 'SEARCH':
       return action.payload;
-    case 'RESET_SEARCH':
-      return INITIAL_STATE;
     default:
       return state;
   }
 };
 
 export const SearchContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(SearchReducer, INITIAL_STATE);
+  const [state, dispatch] = useReducer(SearchReducer, defaultState);
 
   return (
     <SearchContext.Provider
@@ -34,4 +33,8 @@ export const SearchContextProvider = ({ children }) => {
       {children}
     </SearchContext.Provider>
   );
+};
+
+export const useSearch = () => {
+  return useContext(SearchContext);
 };

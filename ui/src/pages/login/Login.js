@@ -1,6 +1,6 @@
 import './login.scss';
 import React, { useContext, useState } from 'react';
-import { AuthContext } from '../../context/AuthContext';
+import { AuthContext, useAuth } from '../../context/AuthContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/navbar/Navbar';
@@ -8,8 +8,8 @@ import Navbar from '../../components/navbar/Navbar';
 const Login = () => {
   const [credentials, setCredentials] = useState({ username: undefined, password: undefined });
 
-  // const { user, isLoading, error, dispatch } = useContext(AuthContext);
-  const { isLoading, error, dispatch } = useContext(AuthContext);
+  // const { user, isLoading, error, dispatch } = useAuth();
+  const { isLoading, error, dispatch } = useAuth();
 
   const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ const Login = () => {
 
   const handleClick = async e => {
     e.preventDefault();
-    dispatch({ type: 'LOGIN_START' });
+    dispatch({ type: 'IS_LOGIN' });
     try {
       const res = await axios.post('auth/login', credentials);
       dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
