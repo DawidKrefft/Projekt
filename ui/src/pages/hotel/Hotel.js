@@ -1,14 +1,15 @@
-import './hotel.scss';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import Navbar from '../../components/navbar/Navbar';
-import useFetch from './../../hooks/useFetch';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { SearchContext } from '../../context/SearchContext';
-import { AuthContext, useAuth } from '../../context/AuthContext';
-import Reserve from '../../components/reserve/Reserve';
 import { motion } from 'framer-motion';
+import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+
+import { useAuth } from '../../context/AuthContext';
+import Navbar from '../../components/navbar/Navbar';
+import Reserve from '../../components/reserve/Reserve';
+import useFetch from './../../hooks/useFetch';
+
+import './hotel.scss';
 
 const Hotel = () => {
   const location = useLocation();

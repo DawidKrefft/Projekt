@@ -1,15 +1,18 @@
-import './list.scss';
-import React, { useContext, useState } from 'react';
-import Navbar from '../../components/navbar/Navbar';
-import Header from '../../components/header/Header';
-import { useLocation } from 'react-router-dom';
-import { format } from 'date-fns';
 import { DateRange } from 'react-date-range';
+import { format } from 'date-fns';
+import { useLocation } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme
+
+import { SearchContext, useSearch } from '../../context/SearchContext';
+import Header from '../../components/header/Header';
+import Navbar from '../../components/navbar/Navbar';
 import SearchItem from '../../components/searchItem/SearchItem';
 import useFetch from './../../hooks/useFetch';
-import { SearchContext, useSearch } from '../../context/SearchContext';
+
+import './list.scss';
 
 const List = () => {
   const location = useLocation();

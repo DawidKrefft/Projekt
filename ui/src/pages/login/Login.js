@@ -1,9 +1,11 @@
-import './login.scss';
-import React, { useContext, useState } from 'react';
-import { AuthContext, useAuth } from '../../context/AuthContext';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import React, { useState } from 'react';
+
+import { useAuth } from '../../context/AuthContext';
 import Navbar from '../../components/navbar/Navbar';
+
+import './login.scss';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ username: undefined, password: undefined });
@@ -28,8 +30,6 @@ const Login = () => {
       dispatch({ type: 'LOGIN_FAILURE', payload: err.response.data });
     }
   };
-
-  // console.log(user);
 
   return (
     <>

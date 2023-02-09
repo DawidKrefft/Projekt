@@ -1,8 +1,9 @@
-import './searchItem.scss';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { GoLocation } from 'react-icons/go';
 import { BsClipboardCheck } from 'react-icons/bs';
+import { GoLocation } from 'react-icons/go';
+import { Link } from 'react-router-dom';
+import React from 'react';
+
+import './searchItem.scss';
 import img from '../../Assets/img1.jpg';
 
 const SearchItem = ({ item, handleSearch, dates, options }) => {

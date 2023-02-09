@@ -1,8 +1,10 @@
-import './register.scss';
-import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import React from 'react';
+
 import Navbar from '../../components/navbar/Navbar';
+
+import './register.scss';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -17,13 +19,11 @@ const Register = () => {
     setSubmitted(false);
   };
 
-  // Handling the email change
   const handleEmail = e => {
     setEmail(e.target.value);
     setSubmitted(false);
   };
 
-  // Handling the password change
   const handlePassword = e => {
     setPassword(e.target.value);
     setSubmitted(false);

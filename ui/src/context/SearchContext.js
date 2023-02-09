@@ -1,5 +1,5 @@
-import { useContext } from 'react';
 import { createContext, useReducer } from 'react';
+import { useContext } from 'react';
 
 const defaultState = {
   city: undefined,

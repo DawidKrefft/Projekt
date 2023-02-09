@@ -1,10 +1,12 @@
-import React, { useContext, useState } from 'react';
-import './navbar.scss';
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext, useAuth } from '../../context/AuthContext';
-import { TbBrandBooking } from 'react-icons/tb';
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { Link, useNavigate } from 'react-router-dom';
+import { TbBrandBooking } from 'react-icons/tb';
 import { TbGridDots } from 'react-icons/tb';
+import React, { useContext, useState } from 'react';
+
+import { AuthContext, useAuth } from '../../context/AuthContext';
+
+import './navbar.scss';
 
 const Navbar = () => {
   const [active, setActive] = useState('navbar');

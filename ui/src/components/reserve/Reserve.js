@@ -1,14 +1,15 @@
-import './reserve.scss';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
-import React, { useState } from 'react';
-import { useContext } from 'react';
-import { SearchContext, useSearch } from '../../context/SearchContext';
-import useFetch from '../../hooks/useFetch';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import format from 'date-fns/format';
-import { AuthContext, useAuth } from '../../context/AuthContext';
+import React, { useState } from 'react';
+
+import { useAuth } from '../../context/AuthContext';
+import { useSearch } from '../../context/SearchContext';
+import useFetch from '../../hooks/useFetch';
+
+import './reserve.scss';
 
 const Reserve = ({ setOpen, hotelId }) => {
   const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
@@ -52,10 +53,8 @@ const Reserve = ({ setOpen, hotelId }) => {
     'dd/MM/yyyy',
   )}`;
 
-  const userId = user._id;
-
   const navigate = useNavigate();
-  // console.log(selectedRooms);
+
   const handleClick = async () => {
     try {
       await Promise.all(

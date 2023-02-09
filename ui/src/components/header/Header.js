@@ -1,18 +1,20 @@
-import './header.scss';
-import video from '../../Assets/video.mp4';
-import React, { useState } from 'react';
-import { GoLocation } from 'react-icons/go';
-import format from 'date-fns/format';
 import { DateRange } from 'react-date-range';
+import { GoLocation } from 'react-icons/go';
+import { useNavigate } from 'react-router-dom';
+import format from 'date-fns/format';
+import React, { useState } from 'react';
+
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { SearchContext, useSearch } from './../../context/SearchContext';
-import { AuthContext, useAuth } from './../../context/AuthContext';
+
+import { useAuth } from './../../context/AuthContext';
+import { useSearch } from './../../context/SearchContext';
+import Navbar from '../../components/navbar/Navbar';
 import StatsLocation from '../statsLocation/StatsLocation';
 import StatsType from '../statsType/StatsType';
-import Navbar from '../../components/navbar/Navbar';
+
+import './header.scss';
+import video from '../../Assets/video.mp4';
 
 const Header = () => {
   const [destination, setDestination] = useState('');

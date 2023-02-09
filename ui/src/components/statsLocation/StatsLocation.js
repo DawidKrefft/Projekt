@@ -1,10 +1,10 @@
 import React from 'react';
-import './statsLocation.scss';
 import useFetch from '../../hooks/useFetch.js';
+import './statsLocation.scss';
 
 const StatsLocation = () => {
   const { data, loading, error } = useFetch('/hotels/countByCity?cities=venice,warsaw,london');
-  // console.log(data);
+
   return (
     <div className='statsLocation flex'>
       {loading ? (
